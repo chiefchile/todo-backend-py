@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'todo_backend_py.note'
+    'todo_backend_py.note',
+    'todo_backend_py.common',
 ]
 
 MIDDLEWARE = [
@@ -78,9 +79,8 @@ WSGI_APPLICATION = 'todo_backend_py.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'todo',
-        'HOST': 'mongodb://localhost:27017/todo',
-        'PORT': 27017,
+        'NAME': 'todobackendpy',
+        'HOST': 'mongodb://alex:alex26@ds349455.mlab.com:49455/todobackendpy',
     }
 }
 

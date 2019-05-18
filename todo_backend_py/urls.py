@@ -18,11 +18,11 @@ from django.urls import path, include
 from rest_framework import routers
 from todo_backend_py.note import views
 
-router = routers.DefaultRouter()
-router.register(r'note', views.NoteViewSet)
+#router = routers.DefaultRouter()
+#router.register(r'note', views.NoteViewSet)
 
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('note/<int:pk>', views.NoteView.as_view()),
     path('admin/', admin.site.urls),
 ]
