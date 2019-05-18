@@ -3,3 +3,4 @@ env
 .pydevproject
 __pycache__/
 *.py[cod]
+requirements.txt
