@@ -3,6 +3,3 @@ env
 .pydevproject
 __pycache__/
 *.py[cod]
-requirements.txt
-runtime.txt
-Procfile
