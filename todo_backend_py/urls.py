@@ -23,7 +23,7 @@ router.register(r'note', views.NoteViewSet)
 
 
 urlpatterns = [
-    #path('note/<int:pk>', views.NoteView.as_view()),
+    path('titles/<str:user>', views.TitleView.as_view()),
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
 ]
