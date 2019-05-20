@@ -9,14 +9,16 @@ from todo_backend_py.note.models import Note, GetNoteResult
 from todo_backend_py.common.models import Result
 
 
-class NoteView(APIView):
-	
-	def get(self, request, pk, format=None):
-		try:
-			note = Note.objects.get(pk=pk)
-		except Note.DoesNotExist:
-			return Response(vars(Result(code=-1, msg="Not found")))
-		
-		serializer = NoteSerializer(note)
-		result = GetNoteResult(code=0, msg="Success", note=serializer.data)
-		return Response(vars(result))
+class NoteViewSet(viewsets.ModelViewSet):
+    queryset = Note.objects.all()
+    serializer_class = NoteSerializer
+
+# 	def get(self, request, pk, format=None):
+# 		try:
+# 			note = Note.objects.get(pk=pk)
+# 		except Note.DoesNotExist:
+# 			return Response(vars(Result(code=-1, msg="Not found")))
+#
+# 		serializer = NoteSerializer(note)
+# 		result = GetNoteResult(code=0, msg="Success", note=serializer.data)
+# 		return Response(vars(result))

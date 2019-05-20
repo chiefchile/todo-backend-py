@@ -81,7 +81,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'todobackendpy',
-        'HOST': 'mongodb://alex:alex26@ds349455.mlab.com:49455/todobackendpy',
+        #'HOST': 'mongodb://alex:alex26@ds349455.mlab.com:49455/todobackendpy',
+        'HOST': 'mongodb://127.0.0.1:27017/todobackendpy',
     }
 }
 

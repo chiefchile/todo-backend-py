@@ -3,8 +3,8 @@ from todo_backend_py.note.models import Note
 
 
 class NoteSerializer(serializers.ModelSerializer):
-	_id = serializers.CharField(source='id')
-	
-	class Meta:
-		model = Note
-		fields = ('_id', 'title', 'note', 'user')
+    _id = serializers.CharField(source='id', read_only=True)
+
+    class Meta:
+        model = Note
+        fields = ('_id', 'title', 'note', 'user')
