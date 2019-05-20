@@ -13,6 +13,14 @@ class NoteViewSet(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
 
 
+class NoteView(APIView):
+
+    # Delete all notes of user -- used in end to end testing
+    def delete(self, request, user, format=None):
+        Note.objects.filter(user=user).delete()
+        return Response(status=status.HTTP_200_OK)
+
+
 class TitleView(APIView):
 
     def get(self, request, user, format=None):
