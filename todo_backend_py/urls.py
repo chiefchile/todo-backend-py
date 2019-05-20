@@ -24,6 +24,7 @@ router.register(r'note', views.NoteViewSet)
 
 urlpatterns = [
     path('titles/<str:user>', views.TitleView.as_view()),
+    path('login/', views.LoginView.as_view()),
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
 ]
