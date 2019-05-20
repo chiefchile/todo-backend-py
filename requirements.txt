@@ -3,3 +3,4 @@ django-heroku
 djangorestframework
 djongo
 gunicorn
+django-cors-headers

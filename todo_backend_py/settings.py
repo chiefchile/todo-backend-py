@@ -41,9 +41,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'todo_backend_py.note',
     'todo_backend_py.common',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -127,3 +129,5 @@ STATIC_URL = '/static/'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals(), databases=False)
+
+CORS_ORIGIN_ALLOW_ALL = True

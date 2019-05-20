@@ -25,11 +25,11 @@ class TitleView(APIView):
 
     def get(self, request, user, format=None):
         try:
-            note = Note.objects.get(user=user)
+            note = Note.objects.filter(user=user)
         except Note.DoesNotExist:
             return Response([])
 
-        serializer = TitleSerializer(note)
+        serializer = TitleSerializer(note, many=True)
         return Response(serializer.data)
 
 

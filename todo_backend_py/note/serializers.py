@@ -15,4 +15,4 @@ class TitleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Note
-        fields = ('title', '_id')
+        fields = ('_id', 'title',)
