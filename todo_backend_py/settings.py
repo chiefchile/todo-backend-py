@@ -80,6 +80,8 @@ WSGI_APPLICATION = 'todo_backend_py.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DB_HOST = os.getenv("DB_HOST", None)
+if DB_HOST is None:
+	DBHOST = "mongodb://127.0.0.1:27017/todobackendpy"
 DATABASES = {
 	'default': {
 		'ENGINE': 'djongo',
