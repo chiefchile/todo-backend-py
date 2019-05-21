@@ -14,7 +14,7 @@ class NoteViewSet(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
 
 
-# Delete all notes of user -- used in end to end testing
+# Delete all notes of testuser -- used in end to end testing
 def deleteTestData(request):
     Note.objects.filter(user="testuser").delete()
     return HttpResponse(status=status.HTTP_200_OK)
