@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse, JsonResponse
 
 from rest_framework import viewsets, mixins, generics, status
 from rest_framework.views import APIView
@@ -13,12 +14,10 @@ class NoteViewSet(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
 
 
-class NoteView(APIView):
-
-    # Delete all notes of user -- used in end to end testing
-    def delete(self, request, user, format=None):
-        Note.objects.filter(user=user).delete()
-        return Response(status=status.HTTP_200_OK)
+# Delete all notes of user -- used in end to end testing
+def deleteTestData(request):
+    Note.objects.filter(user="testuser").delete()
+    return HttpResponse(status=status.HTTP_200_OK)
 
 
 class TitleView(APIView):

@@ -79,12 +79,17 @@ WSGI_APPLICATION = 'todo_backend_py.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+TODOBACKENDPY_USERNAME = os.getenv("TODOBACKENDPY_USERNAME", None)
+TODOBACKENDPY_PASSWORD = os.getenv("TODOBACKENDPY_PASSWORD", None)
+HOST = f"mongodb://{TODOBACKENDPY_USERNAME}:{TODOBACKENDPY_PASSWORD}@ds349455.mlab.com:49455/todobackendpy"
+print(HOST)
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'todobackendpy',
-        'HOST': 'mongodb://alex:alex26@ds349455.mlab.com:49455/todobackendpy',
-        #'HOST': 'mongodb://127.0.0.1:27017/todobackendpy',
+        #'HOST': HOST,
+        #'HOST': 'mongodb://alex:alex26@ds349455.mlab.com:49455/todobackendpy',
+        'HOST': 'mongodb://127.0.0.1:27017/todobackendpy',
     }
 }
 
