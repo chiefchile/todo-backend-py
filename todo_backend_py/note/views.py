@@ -24,7 +24,7 @@ class TitleView(APIView):
 
     def get(self, request, user, format=None):
         try:
-            note = Note.objects.filter(user=user)
+            note = Note.objects.filter(user=user).order_by("title")
         except Note.DoesNotExist:
             return Response([])
 
