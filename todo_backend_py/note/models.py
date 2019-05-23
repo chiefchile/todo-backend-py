@@ -4,7 +4,7 @@ from todo_backend_py.common.models import Result
 
 
 class Note(models.Model):
-    note = models.CharField(max_length=2000)
+    note = models.CharField(max_length=2000, blank=True, default='')
     title = models.CharField(max_length=300)
     user = models.CharField(max_length=50, default=None)
 
