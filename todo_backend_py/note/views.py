@@ -1,3 +1,5 @@
+import logging
+
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 
@@ -7,6 +9,9 @@ from rest_framework.response import Response
 
 from todo_backend_py.note.serializers import NoteSerializer, TitleSerializer
 from todo_backend_py.note.models import Note, User
+
+
+logger = logging.getLogger(__name__)
 
 
 class NoteViewSet(viewsets.ModelViewSet):
