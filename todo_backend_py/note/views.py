@@ -40,6 +40,7 @@ class TitleView(APIView):
 class LoginView(APIView):
 
     def post(self, request, format=None):
+        logger.info("login %s" % request.data["username"])
         try:
             user = User.objects.get(
                 username=request.data["username"], password=request.data["password"])

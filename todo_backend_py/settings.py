@@ -151,12 +151,21 @@ logging.config.dictConfig({
             'class': 'logging.StreamHandler',
             'formatter': 'console'
         },
+        #         'file': {
+        #             'level': 'DEBUG',
+        #             'class': 'logging.FileHandler',
+        #             'formatter': 'file',
+        #             'filename': 'debug.log'
+        #         }
+
         'file': {
             'level': 'DEBUG',
-            'class': 'logging.FileHandler',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': 'debug.log',
+            'when': 'D',  # this specifies the interval
+            'interval': 1,  # defaults to 1, only necessary for other values
             'formatter': 'file',
-            'filename': 'debug.log'
-        }
+        },
     },
     'loggers': {
         '': {
