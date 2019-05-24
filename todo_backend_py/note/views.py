@@ -20,7 +20,7 @@ class NoteViewSet(viewsets.ModelViewSet):
 
 
 # Delete all notes of testuser -- used in end to end testing
-def deleteTestData(request):
+def delete_test_data(request):
     Note.objects.filter(user="testuser").delete()
     return HttpResponse(status=status.HTTP_200_OK)
 
