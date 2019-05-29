@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'todo_backend_py.note',
     'todo_backend_py.common',
     'corsheaders',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -179,3 +180,10 @@ logging.config.dictConfig({
         }
     }
 })
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
