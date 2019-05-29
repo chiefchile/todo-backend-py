@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 
 from rest_framework import viewsets, mixins, generics, status
+from rest_framework.decorators import action
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import permissions
@@ -31,8 +32,10 @@ class NoteViewSet(viewsets.GenericViewSet,
 
 
 # Delete all notes of testuser -- used in end to end testing
+#@action(methods=['get'], detail=False, permission_classes=[permissions.AllowAny])
 def delete_test_data(request):
-    Note.objects.filter(user="testuser").delete()
+    for note in Note.objects.filter(user__username="testuser"):
+        note.delete()
     return HttpResponse(status=status.HTTP_200_OK)
 
 
