@@ -12,7 +12,7 @@ class NoteTests(APITestCase):
     def setUp(self):
         self.user = User.objects.create_user("testuser", password="testuser")
         self.client.post('/api-token-auth/', {"username": "testuser", "password": "testuser"},
-                                          format='json')
+                         format='json')
         self.client.force_authenticate(user=self.user, token=self.user.auth_token)
 
     def create_note(self):
@@ -70,9 +70,3 @@ class NoteTests(APITestCase):
         response = self.client.get("/note/deleteTestData/")
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-
-
-
-
-
