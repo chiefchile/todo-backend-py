@@ -11,13 +11,11 @@ class NoteTests(APITestCase):
 
     def setUp(self):
         self.user = User.objects.create_user("testuser", password="testuser")
-        self.client.post('/api-token-auth/', {"username": "testuser", "password": "testuser"},
-                         format='json')
+        self.client.post('/api-token-auth/', {"username": "testuser", "password": "testuser"})
         self.client.force_authenticate(user=self.user, token=self.user.auth_token)
 
     def create_note(self):
-        return self.client.post('/note/', {"note": NOTE, "title": TITLE},
-                                format='json')
+        return self.client.post('/note/', {"note": NOTE, "title": TITLE})
 
     def test_get_note(self):
         create_response = self.create_note()
@@ -42,8 +40,7 @@ class NoteTests(APITestCase):
         updated_note = "updated note"
         updated_title = "updated title"
 
-        response = self.client.put(url, {"note": updated_note, "title": updated_title},
-                                   format='json')
+        response = self.client.put(url, {"note": updated_note, "title": updated_title})
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.check_note(response, updated_note, updated_title)
