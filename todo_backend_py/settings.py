@@ -25,8 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = os.getenv('TODO_BACKEND_PY_SECRET', None)
 if SECRET_KEY is None:
-    raise RuntimeError('TODO_BACKEND_PY_SECRET env var missing');
-# SECRET_KEY = 'zm9w-(2=w)j$f-(zh-emoz8@vnck_q#bs)*wpe(r#_25*jdw7_'
+    raise RuntimeError('TODO_BACKEND_PY_SECRET env var missing')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
